@@ -15,3 +15,11 @@ npm install express
 ```
 npm install --save-dev nodemon
 ```
+
+3. CORS
+
+```
+npm install cors
+```
+
+4. Deployed on [render](https://render.com/) - Cloud Application Hosting for Developers
