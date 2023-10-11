@@ -25,3 +25,7 @@ npm install cors
 4. Deployed on [render](https://render.com/) - Cloud Application Hosting for Developers
 
 https://notes-app-3bjn.onrender.com
+
+5. MongoDB Atlas - A MongoDB provider. Create an account (here)[https://www.mongodb.com/atlas/database] and choose the free option
+
+6. Mongoose - Object Document Mapper
