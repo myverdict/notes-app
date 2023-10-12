@@ -23,15 +23,39 @@ const noteSchema = new mongoose.Schema({
 const Note = mongoose.model("Note", noteSchema);
 
 // create a new note object with the help of the "Note" model
+// const note = new Note({
+//   content: "HTML is Easy",
+//   important: true,
+// });
+
+// const note = new Note({
+//   content: "CSS is hard",
+//   important: true,
+// });
+
 const note = new Note({
-  content: "HTML is Easy",
-  important: true,
+  content: "Mongoose makes things easy",
+  important: false,
 });
 
-// save the object to the database
-note.save().then((result) => {
-  console.log("note saved!");
-  console.log(result);
-  // close the database connection
+// // save the object to the database
+// note.save().then((result) => {
+//   console.log("note saved!");
+//   console.log(result);
+//   // close the database connection
+//   mongoose.connection.close();
+// });
+
+// Note.find({}).then((result) => {
+//   result.forEach((note) => {
+//     console.log(note);
+//   });
+//   mongoose.connection.close();
+// });
+
+Note.find({ important: true }).then((result) => {
+  result.forEach((note) => {
+    console.log(note);
+  });
   mongoose.connection.close();
 });
