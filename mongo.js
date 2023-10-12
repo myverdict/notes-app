@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 
 if (process.argv.length < 3) {
@@ -5,8 +6,7 @@ if (process.argv.length < 3) {
   process.exit(1);
 }
 
-const password = process.argv[2];
-const uri = `mongodb+srv://sam:${password}@cluster0.gkzzbka.mongodb.net/noteApp?retryWrites=true&w=majority`;
+const uri = process.env.MONGODB_URI;
 
 mongoose.set("strictQuery", false);
 
@@ -34,17 +34,17 @@ const Note = mongoose.model("Note", noteSchema);
 // });
 
 const note = new Note({
-  content: "Mongoose makes things easy",
-  important: false,
+  content: "Hulk is taking form",
+  important: true,
 });
 
-// // save the object to the database
-// note.save().then((result) => {
-//   console.log("note saved!");
-//   console.log(result);
-//   // close the database connection
-//   mongoose.connection.close();
-// });
+// save the object to the database
+note.save().then((result) => {
+  console.log("note saved!");
+  console.log(result);
+  // close the database connection
+  mongoose.connection.close();
+});
 
 // Note.find({}).then((result) => {
 //   result.forEach((note) => {
@@ -53,9 +53,9 @@ const note = new Note({
 //   mongoose.connection.close();
 // });
 
-Note.find({ important: true }).then((result) => {
-  result.forEach((note) => {
-    console.log(note);
-  });
-  mongoose.connection.close();
-});
+// Note.find({ important: true }).then((result) => {
+//   result.forEach((note) => {
+//     console.log(note);
+//   });
+//   mongoose.connection.close();
+// });
