@@ -6,7 +6,7 @@ if (process.argv.length < 3) {
 }
 
 const password = encodeURIComponent(process.argv[2]);
-const uri = `mongodb+srv://sam:${password}@cluster0.gkzzbka.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://sam:${password}@cluster0.gkzzbka.mongodb.net/noteApp?retryWrites=true&w=majority`;
 
 mongoose.set("strictQuery", false);
 mongoose.connect(uri);
