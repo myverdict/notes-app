@@ -2,6 +2,8 @@
 
 Practice - Note application: backend express server app (contd. from Part 3a)
 
+NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
+
 ### Requirements for the application:
 
 1. Express - Express.js, or simply Express, is a back end web application framework for building RESTful APIs with Node.js
