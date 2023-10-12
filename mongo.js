@@ -16,6 +16,7 @@ const noteSchema = new mongoose.Schema({
   important: Boolean,
 });
 
+// the first "Note" parameter is the singular name of the model
 const Note = mongoose.model("Note", noteSchema);
 
 const note = new Note({
