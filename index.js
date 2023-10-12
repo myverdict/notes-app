@@ -1,29 +1,8 @@
-const mongoose = require("mongoose");
-
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
-const uri = `mongodb+srv://sam:VCMtNZGieujBBjmV@cluster0.gkzzbka.mongodb.net/noteApp?retryWrites=true&w=majority`;
-
-console.log(uri);
-
-mongoose.set("strictQuery", false);
-mongoose.connect(uri);
-
-const noteSchema = mongoose.Schema({
-  content: String,
-  important: Boolean,
-});
-const Note = mongoose.model("Note", noteSchema);
-
-noteSchema.set("toJSON", {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
-    delete returnedObject._id;
-    delete returnedObject.__v;
-  },
-});
+const Note = require("./models/note");
 
 // custom middleware
 const requestLogger = (request, response, next) => {
@@ -124,7 +103,7 @@ app.get("/api/notes", (request, response) => {
 
 app.use(unknownEndpoint);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

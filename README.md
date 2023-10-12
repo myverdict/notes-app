@@ -29,3 +29,9 @@ https://notes-app-3bjn.onrender.com
 5. MongoDB Atlas - A MongoDB provider. Create an account (here)[https://www.mongodb.com/atlas/database] and choose the free option. (MongoDB is a document-oriented NoSQL database)
 
 6. Mongoose - Object Document Mapper library for MongoDB
+
+7. dotenv - used for environment variables
+
+```
+npm install dotenv
+```
