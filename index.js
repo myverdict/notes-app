@@ -25,11 +25,9 @@ app.get("/", (request, response) => {
 });
 
 app.get("/api/notes", (request, response) => {
-  Note.find({})
-    .then((notes) => {
-      response.json(notes);
-    })
-    .catch((error) => next(error));
+  Note.find({}).then((notes) => {
+    response.json(notes);
+  });
 });
 
 app.get("/api/notes/:id", (request, response, next) => {
