@@ -66,6 +66,10 @@ https://notes-app-3bjn.onrender.com
 
 6. Mongoose - Object Document Mapper library for MongoDB
 
+```
+npm install mongoose
+```
+
 7. dotenv - used for environment variables
 
 ```
