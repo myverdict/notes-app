@@ -22,7 +22,7 @@ node mongo.js yourPassword
 npm run dev
 ```
 
-On the browser, visit:
+On the browser, visit for get requests for get requests:
 
 - http://localhost:3001/
 - http://localhost:3001/api/notes
@@ -32,11 +32,13 @@ You can also perform these operations on Postman/VS Code REST client.
 
 REST HTTP Methods for the notes application:
 
-| URL         | verb | functionality                                    |
-| ----------- | ---- | ------------------------------------------------ |
-| api/notes   | GET  | fetches all resources in the collection          |
-| api/notes/1 | GET  | fetches a single resource                        |
-| api/notes   | POST | creates a new resource based on the request data |
+| URL          | verb   | functionality                                                 |
+| ------------ | ------ | ------------------------------------------------------------- |
+| api/notes    | GET    | fetches all resources in the collection                       |
+| api/notes/1  | GET    | fetches a single resource                                     |
+| api/notes    | POST   | creates a new resource based on the request data              |
+| api/notes/1  | PUT    | replaces the entire identified resource with the request data |
+| /api/notes/1 | DELETE | removes the identified resource                               |
 
 ---
 
@@ -70,7 +72,7 @@ npm install cors
 
 https://notes-app-3bjn.onrender.com
 
-When the app is deployed in Render, make sure that the env variables from this project is saved in the Render web service --> Environment 
+When the app is deployed in Render, make sure that the env variables from this project is saved in the Render web service --> Environment
 
 5. MongoDB Atlas - A MongoDB provider. Create an account (here)[https://www.mongodb.com/atlas/database] and choose the free option. (MongoDB is a document-oriented NoSQL database)
 

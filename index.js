@@ -19,11 +19,6 @@ app.use(cors()); // cors middleware
 app.use(requestLogger); // custom middleware
 app.use(express.static("dist")); // static middleware
 
-// this does not work anymore as the frontend now reflects at this route
-app.get("/", (request, response) => {
-  response.send("<h1>Hello World!</h1>");
-});
-
 app.get("/api/notes", (request, response) => {
   Note.find({}).then((notes) => {
     response.json(notes);
