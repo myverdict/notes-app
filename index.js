@@ -14,8 +14,8 @@ const requestLogger = (request, response, next) => {
   next();
 };
 
-app.use(cors()); // cors middleware
 app.use(express.json()); // json parser middleware
+app.use(cors()); // cors middleware
 app.use(requestLogger); // custom middleware
 app.use(express.static("dist")); // static middleware
 
@@ -70,6 +70,9 @@ const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: "unknown endpoint" });
 };
 
+// handler of requests with unknown endpoint
+app.use(unknownEndpoint);
+
 const errorHandler = (error, request, response, next) => {
   console.error(`${error.name}: ${error.message}`);
 
@@ -80,7 +83,7 @@ const errorHandler = (error, request, response, next) => {
   next(error);
 };
 
-app.use(unknownEndpoint);
+// handler of requests with result to errors
 // this has to be the last loaded middleware.
 app.use(errorHandler);
 
