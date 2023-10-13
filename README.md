@@ -42,9 +42,9 @@ REST HTTP Methods for the notes application:
 
 ---
 
-### Part 3 - (c) Saving data to MongoDB
+### Part 3 - (d) Validation and ESLint
 
-Practice - Note application: backend express server app (contd. from Part 3a)
+Practice - Note application: backend express server app (contd. from Part 3c)
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 
