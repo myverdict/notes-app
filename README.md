@@ -1,6 +1,38 @@
-## Part 3 - (b) Deploying app to internet
+# Notes application - University of Helsinki (Deep Dive Into Modern Web Development)
 
-Practice - Note application: backend express server app (contd. from Part 3a)
+Install dependencies from the root of the project/application:
+
+```
+npm i
+```
+
+To run the application, in the terminal run the below command:
+
+```
+npm run dev
+```
+
+On the browser, visit:
+
+- http://localhost:3001/
+- http://localhost:3001/api/notes
+- http://localhost:3001/api/notes/1
+
+You can also perform these operations on Postman/VS Code REST client.
+
+REST HTTP Methods for the notes application:
+
+| URL         | verb | functionality                                    |
+| ----------- | ---- | ------------------------------------------------ |
+| api/notes   | GET  | fetches all resources in the collection          |
+| api/notes/1 | GET  | fetches a single resource                        |
+| api/notes   | POST | creates a new resource based on the request data |
+
+---
+
+## Part 3 - (c) Saving data to MongoDB
+
+Practice - Note application: backend express server app (contd. from Part 3b)
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 

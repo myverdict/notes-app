@@ -40,6 +40,7 @@ app.use(express.static("dist"));
 //   },
 // ];
 
+// this does not work anymore as the frontend now reflects at this route
 app.get("/", (request, response) => {
   response.send("<h1>Hello World!</h1>");
 });
