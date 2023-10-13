@@ -76,13 +76,6 @@ app.put("/api/notes/:id", (request, response, next) => {
     .catch((error) => next(error));
 });
 
-// app.delete("/api/notes/:id", (request, response) => {
-//   const id = Number(request.params.id);
-//   notes = notes.filter((note) => note.id !== id);
-
-//   response.status(204).end();
-// });
-
 app.delete("/api/notes/:id", (request, response, next) => {
   Note.findByIdAndRemove(request.params.id)
     .then((result) => {
