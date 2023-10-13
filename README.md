@@ -10,6 +10,14 @@ npm i
 
 To run the application, in the terminal run the below command:
 
+- For practice purposes:
+
+```
+node mongo.js yourPassword
+```
+
+- Actual notes application
+
 ```
 npm run dev
 ```
