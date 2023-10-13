@@ -70,6 +70,8 @@ npm install cors
 
 https://notes-app-3bjn.onrender.com
 
+When the app is deployed in Render, make sure that the env variables from this project is saved in the Render web service --> Environment 
+
 5. MongoDB Atlas - A MongoDB provider. Create an account (here)[https://www.mongodb.com/atlas/database] and choose the free option. (MongoDB is a document-oriented NoSQL database)
 
 6. Mongoose - Object Document Mapper library for MongoDB

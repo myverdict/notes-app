@@ -1,8 +1,9 @@
 require("dotenv").config();
 const express = require("express");
-const app = express();
 const cors = require("cors");
 const Note = require("./models/note");
+
+const app = express();
 
 // custom middleware
 const requestLogger = (request, response, next) => {
@@ -13,14 +14,10 @@ const requestLogger = (request, response, next) => {
   next();
 };
 
-const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: "unknown endpoint" });
-};
-
 app.use(cors()); // cors middleware
 app.use(express.json()); // json parser middleware
 app.use(requestLogger); // custom middleware
-app.use(express.static("dist"));
+app.use(express.static("dist")); // static middleware
 
 // this does not work anymore as the frontend now reflects at this route
 app.get("/", (request, response) => {
@@ -62,6 +59,10 @@ app.post("/api/notes", (request, response) => {
 
 //   response.status(204).end();
 // });
+
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: "unknown endpoint" });
+};
 
 app.use(unknownEndpoint);
 
