@@ -47,7 +47,10 @@ app.post("/api/notes", (request, response, next) => {
 
   note
     .save()
-    .then((savedNote) => response.json(savedNote))
+    .then((savedNote) => {
+      console.log("note saved");
+      response.json(savedNote);
+    })
     .catch((error) => next(error));
 });
 
