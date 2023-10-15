@@ -1,6 +1,4 @@
-# uoh-fullstack-open-2023-part3
-
-## Notes application - University of Helsinki (Deep Dive Into Modern Web Development, Part 3: Programming a server with NodeJS and Express)
+# Notes application - University of Helsinki (Deep Dive Into Modern Web Development, Part 4: Testing Express servers, user administration)
 
 Install dependencies from the root of the project/application:
 
@@ -42,13 +40,13 @@ REST HTTP Methods for the notes application:
 
 ---
 
-### Part 4 - (a) Structure off backend application, introduction to testing
+## Part 4 - (a) Structure off backend application, introduction to testing
 
 Practice - Note application: backend express server app (contd. from Part 3d)
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 
-#### Requirements for the application:
+### Requirements for the application:
 
 1. Express - Express.js, or simply Express, is a back end web application framework for building RESTful APIs with Node.js
 
