@@ -1,25 +1,13 @@
-require('dotenv').config();
+// this file only defines the Mongoose schema for notes
+// whereas the mongoDB connection is moved to app.js file
 const mongoose = require('mongoose');
-
-mongoose.set('strictQuery', false);
-
-const uri = process.env.MONGODB_URI;
-
-mongoose
-  .connect(uri)
-  .then((result) => {
-    console.log('connected to MongoDB');
-  })
-  .catch((error) => {
-    console.log('error connecting to MongoDB:', error.message);
-  });
 
 const noteSchema = new mongoose.Schema({
   // mongoose validation
   content: {
     type: String,
-    minLength: 5,
     required: true,
+    minlength: 5,
   },
   important: Boolean,
 });

@@ -42,9 +42,9 @@ REST HTTP Methods for the notes application:
 
 ---
 
-### Part 3 - (d) Validation and ESLint
+### Part 4 - (a) Structure off backend application, introduction to testing
 
-Practice - Note application: backend express server app (contd. from Part 3c)
+Practice - Note application: backend express server app (contd. from Part 3d)
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 
