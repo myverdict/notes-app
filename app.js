@@ -4,6 +4,7 @@ require('express-async-errors');
 const app = express();
 const cors = require('cors');
 const notesRouter = require('./controllers/notes');
+const usersRouter = require('./controllers/users');
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 const mongoose = require('mongoose');
@@ -27,6 +28,7 @@ app.use(express.json()); // json parser middleware
 app.use(middleware.requestLogger); // custom middleware
 
 app.use('/api/notes', notesRouter);
+app.use('/api/users', usersRouter);
 
 // handler of requests with unknown endpoint
 app.use(middleware.unknownEndpoint);

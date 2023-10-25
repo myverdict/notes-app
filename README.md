@@ -74,19 +74,23 @@ You can also perform these operations on Postman/VS Code REST client.
 
 REST HTTP Methods for the notes application:
 
-| URL          | verb   | functionality                                                 |
-| ------------ | ------ | ------------------------------------------------------------- |
-| api/notes    | GET    | fetches all resources in the collection                       |
-| api/notes/1  | GET    | fetches a single resource                                     |
-| api/notes    | POST   | creates a new resource based on the request data              |
-| api/notes/1  | PUT    | replaces the entire identified resource with the request data |
-| /api/notes/1 | DELETE | removes the identified resource                               |
+| URL              | verb   | functionality                                                 |
+| ---------------- | ------ | ------------------------------------------------------------- |
+| NOTES Collection |
+| api/notes        | GET    | fetches all resources in the collection                       |
+| api/notes/1      | GET    | fetches a single resource                                     |
+| api/notes        | POST   | creates a new resource based on the request data              |
+| api/notes/1      | PUT    | replaces the entire identified resource with the request data |
+| api/notes/1      | DELETE | removes the identified resource                               |
+| USERS Collection |
+| api/users        | GET    | fetches all resources in the collection                       |
+| api/users        | POST   | creates a new resource based on the request data              |
 
 ---
 
-## Part 4 - (b) Testing the backend
+## Part 4 - (c) User administration
 
-Practice - Note application: backend express server app (contd. from Part 4a)
+Practice - Note application: backend express server app (contd. from Part 4b)
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 
@@ -170,4 +174,16 @@ npm install --save-dev supertest
 
 ```bash
 npm install express-async-errors
+```
+
+13. bcrypt - generates password hashes
+
+```bash
+npm install bcrypt
+```
+
+14. mongoose-unique-validator (for checking the uniqueness of a field)
+
+```bash
+npm install mongoose-unique-validator
 ```

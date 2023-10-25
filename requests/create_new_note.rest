@@ -1,0 +1,45 @@
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "User id of the note creator is at the start sent along with the request",
+  "important": true,
+  "userId": "65392444ee65366ff9e78a1a"
+}
+
+###
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "The existing code and tests need to be changed when user is added to the system",
+  "important": true,
+  "userId": "65392444ee65366ff9e78a1a"
+}
+
+###
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "sample note",
+  "userId": "65392444ee65366ff9e78a1a"
+}
+
+### Failed request
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "lol",
+  "important": true,
+  "userId": "65392444ee65366ff9e78a1a"
+}
+
+### Failed request
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "userId": "65392444ee65366ff9e78a1a"
+}
