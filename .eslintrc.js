@@ -3,6 +3,7 @@ module.exports = {
     node: true,
     commonjs: true,
     es2021: true,
+    jest: true,
   },
   // default configuration takes a bunch of predetermined rules into use
   extends: 'eslint:recommended',

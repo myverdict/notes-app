@@ -2,7 +2,7 @@
 
 Install dependencies from the root of the project/application:
 
-```
+```bash
 npm i
 ```
 
@@ -10,14 +10,58 @@ To run the application, in the terminal run the below command:
 
 - For practice purposes:
 
-```
+```bash
 node mongo.js yourPassword
+```
+
+or
+
+```bash
+node mongo.js
 ```
 
 - Actual notes application
 
-```
+```bash
 npm run dev
+```
+
+To run tests:
+
+- To run all tests
+
+```bash
+npm test
+```
+
+or
+
+```bash
+npm run test
+```
+
+- To run an individual test file:
+
+```bash
+npm test -- tests/note_api.test.js
+```
+
+- To run ONE test with a specific name (can be a test name or the describe block):
+
+```bash
+npm test -- -t "a specific note is within the returned notes"
+```
+
+- To run tests that contains the word 'notes' in their name:
+
+```bash
+npm test -- -t 'notes'
+```
+
+Linting:
+
+```bash
+npm run lint
 ```
 
 On the browser, visit for get requests for get requests:
@@ -40,9 +84,9 @@ REST HTTP Methods for the notes application:
 
 ---
 
-## Part 4 - (a) Structure off backend application, introduction to testing
+## Part 4 - (b) Testing the backend
 
-Practice - Note application: backend express server app (contd. from Part 3d)
+Practice - Note application: backend express server app (contd. from Part 4a)
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 
@@ -60,7 +104,7 @@ npm install express
 npm install --save-dev nodemon
 ```
 
-3. CORS
+3. CORS middleware (Cross-Origin Resource Sharing)
 
 ```bash
 npm install cors
@@ -102,4 +146,28 @@ or
 
 ```bash
 npm init @eslint/config
+```
+
+9. Jest - testing library
+
+```bash
+npm install --save-dev jest
+```
+
+10. cross-env (Runs scripts that set and use environment variables across platforms) - Install cross-env as a production dependency.
+
+```bash
+npm install cross-env
+```
+
+11. supertest - write tests for testing the API
+
+```bash
+npm install --save-dev supertest
+```
+
+12. express-async-errors (A dead simple ES6 async/await support hack for ExpressJS)
+
+```bash
+npm install express-async-errors
 ```
