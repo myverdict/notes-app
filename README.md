@@ -85,6 +85,8 @@ REST HTTP Methods for the notes application:
 | USERS Collection |
 | api/users        | GET    | fetches all resources in the collection                       |
 | api/users        | POST   | creates a new resource based on the request data              |
+| LOGIN            |
+| api/login        | POST   | sends user credentials to get token                           |
 
 ---
 
