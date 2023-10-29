@@ -1,45 +1,49 @@
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NTM5MjQ0NGVlNjUzNjZmZjllNzhhMWEiLCJpYXQiOjE2OTgzMzQ1MTV9.IelNvOZOBlc4QYdMeUY8G6N_Gq68DEczq4t-CqMmh4w
 
 {
-  "content": "User id of the note creator is at the start sent along with the request",
-  "important": true,
-  "userId": "65392444ee65366ff9e78a1a"
+  "content": "Single page apps use token authentication",
+  "important": true
 }
 
 ###
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NTM5MjQ0NGVlNjUzNjZmZjllNzhhMWEiLCJpYXQiOjE2OTgzMzQ2NTN9.IvMlOZbl02gRdDnqquJquSqNMRgm1iRcb9IwFUc-bN4
 
 {
-  "content": "The existing code and tests need to be changed when user is added to the system",
-  "important": true,
-  "userId": "65392444ee65366ff9e78a1a"
+  "content": "The existing tests need to be changed after code changes",
+  "important": true
 }
 
 ###
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NTM5MjQ0NGVlNjUzNjZmZjllNzhhMWEiLCJpYXQiOjE2OTgzMzQ2NTN9.IvMlOZbl02gRdDnqquJquSqNMRgm1iRcb9IwFUc-bN4
 
 {
-  "content": "sample note",
-  "userId": "65392444ee65366ff9e78a1a"
+  "content": "sample note"
 }
 
 ### Failed request
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NTM5MjQ0NGVlNjUzNjZmZjllNzhhMWEiLCJpYXQiOjE2OTgzMzQ2NTN9.IvMlOZbl02gRdDnqquJquSqNMRgm1iRcb9IwFUc-bN4
 
 {
   "content": "lol",
-  "important": true,
-  "userId": "65392444ee65366ff9e78a1a"
+  "important": true
 }
 
 ### Failed request
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NTM5MjQ0NGVlNjUzNjZmZjllNzhhMWEiLCJpYXQiOjE2OTgzMzQ2NTN9.IvMlOZbl02gRdDnqquJquSqNMRgm1iRcb9IwFUc-bN4
 
-{
-  "userId": "65392444ee65366ff9e78a1a"
-}
+{}
+
+### Failed request
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NTM5MjQ0NGVlNjUzNjZmZjllNzhhMWEiLCJpYXQiOjE2OTgzMzQ2NTN9.IvMlOZbl02gRdDnqquJquSqNMRgm1iRcb9IwFUc-bN4

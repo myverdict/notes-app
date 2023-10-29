@@ -2,7 +2,7 @@ PUT http://localhost:3001/api/notes/65284213802beff339a7a631
 Content-Type: application/json
 
 {
-  "content": "HTML (Hypertext Markup Language) is easy"
+  "content": "HTML is easy"
 }
 
 ###

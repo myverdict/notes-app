@@ -88,9 +88,9 @@ REST HTTP Methods for the notes application:
 
 ---
 
-## Part 4 - (c) User administration
+## Part 4 - (d) Token authentication
 
-Practice - Note application: backend express server app (contd. from Part 4b)
+Practice - Note application: backend express server app (contd. from Part 4c)
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 
@@ -108,7 +108,7 @@ npm install express
 npm install --save-dev nodemon
 ```
 
-3. CORS middleware (Cross-Origin Resource Sharing)
+3. CORS middleware - Cross-Origin Resource Sharing
 
 ```bash
 npm install cors
@@ -158,7 +158,7 @@ npm init @eslint/config
 npm install --save-dev jest
 ```
 
-10. cross-env (Runs scripts that set and use environment variables across platforms) - Install cross-env as a production dependency.
+10. cross-env - Runs scripts that set and use environment variables across platforms. Install cross-env as a production dependency.
 
 ```bash
 npm install cross-env
@@ -170,7 +170,7 @@ npm install cross-env
 npm install --save-dev supertest
 ```
 
-12. express-async-errors (A dead simple ES6 async/await support hack for ExpressJS)
+12. express-async-errors - A dead simple ES6 async/await support hack for ExpressJS
 
 ```bash
 npm install express-async-errors
@@ -182,8 +182,14 @@ npm install express-async-errors
 npm install bcrypt
 ```
 
-14. mongoose-unique-validator (for checking the uniqueness of a field)
+14. mongoose-unique-validator - for checking the uniqueness of a field
 
 ```bash
 npm install mongoose-unique-validator
+```
+
+15. jsonwebtoken - generates JSON web tokens
+
+```bash
+npm install jsonwebtoken
 ```

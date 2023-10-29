@@ -29,15 +29,14 @@ describe('when there is initially some notes saved', () => {
 
   test('a specific note is within the returned notes', async () => {
     const response = await api.get('/api/notes');
-
     const contents = response.body.map((r) => r.content);
+
     expect(contents).toContain('Browser can execute only JavaScript');
   });
 
   describe('viewing a specific note', () => {
     test('succeeds with a valid id', async () => {
       const notesAtStart = await helper.notesInDb();
-
       const noteToView = notesAtStart[0];
 
       const resultNote = await api
@@ -62,50 +61,61 @@ describe('when there is initially some notes saved', () => {
   });
 
   describe('addition of a new note', () => {
-    beforeEach(async () => {
+    let token = '';
+    beforeAll(async () => {
+      // delete all users at the beginning of the test
       await User.deleteMany({});
 
+      // create and save a new user
       const passwordHash = await bcrypt.hash('sekret', 10);
       const user = new User({
-        username: 'mluukkai',
-        name: 'Matti Luukkainen',
+        username: 'jarvis',
+        name: 'Jarvis AI',
         passwordHash,
       });
-
       await user.save();
+
+      // get login user token
+      const loginUser = {
+        username: 'jarvis',
+        password: 'sekret',
+      };
+      const response = await api.post('/api/login').send(loginUser);
+      token = response.body.token;
     });
 
     test('succeeds with valid data', async () => {
-      const userInfo = await helper.usersInDb();
-
       const newNote = {
         content: 'async/await simplifies making async calls',
         important: true,
-        userId: userInfo[0].id,
       };
 
       await api
         .post('/api/notes')
+        .set('Authorization', `Bearer ${token}`)
         .send(newNote)
         .expect(201)
         .expect('Content-Type', /application\/json/);
 
       const notesAtEnd = await helper.notesInDb();
+
       expect(notesAtEnd).toHaveLength(helper.initialNotes.length + 1);
 
       const contents = notesAtEnd.map((n) => n.content);
+
       expect(contents).toContain('async/await simplifies making async calls');
     });
 
     test('fails with status code 400 if data invalid', async () => {
-      const userInfo = await helper.usersInDb();
-
       const newNote = {
         important: true,
-        userId: userInfo[0].id,
       };
 
-      await api.post('/api/notes').send(newNote).expect(400);
+      await api
+        .post('/api/notes')
+        .set('Authorization', `Bearer ${token}`)
+        .send(newNote)
+        .expect(400);
 
       const notesAtEnd = await helper.notesInDb();
 
@@ -133,11 +143,16 @@ describe('when there is initially some notes saved', () => {
 
 describe('when there is initially one user in the db', () => {
   beforeEach(async () => {
+    // delete all users at the beginning of the test
     await User.deleteMany({});
 
+    // create and save a new user
     const passwordHash = await bcrypt.hash('sekret', 10);
-    const user = new User({ username: 'root', passwordHash });
-
+    const user = new User({
+      username: 'root',
+      name: 'rootuser',
+      passwordHash,
+    });
     await user.save();
   });
 
@@ -157,9 +172,11 @@ describe('when there is initially one user in the db', () => {
       .expect('Content-Type', /application\/json/);
 
     const usersAtEnd = await helper.usersInDb();
+
     expect(usersAtEnd).toHaveLength(usersAtStart.length + 1);
 
     const usernames = usersAtEnd.map((u) => u.username);
+
     expect(usernames).toContain(newUser.username);
   });
 
@@ -181,7 +198,50 @@ describe('when there is initially one user in the db', () => {
     expect(result.body.error).toContain('expected `username` to be unique');
 
     const usersAtEnd = await helper.usersInDb();
+
     expect(usersAtEnd).toHaveLength(usersAtStart.length);
+  });
+});
+
+describe('user login and token generation', () => {
+  beforeEach(async () => {
+    // delete all users at the beginning of the test
+    await User.deleteMany({});
+
+    // create and save a new user
+    const passwordHash = await bcrypt.hash('sekret', 10);
+    const user = new User({
+      username: 'jarvis',
+      name: 'Jarvis AI',
+      passwordHash,
+    });
+    await user.save();
+  });
+
+  test('login success can log in with valid credentials and token generated', async () => {
+    const loginUser = {
+      username: 'jarvis',
+      password: 'sekret',
+    };
+
+    const response = await api.post('/api/login').send(loginUser).expect(200);
+    const token = response.body.token;
+
+    expect(token).not.toBeUndefined();
+  });
+
+  test('login fails with status code 401, token undefined, and with error response if credentials are invalid', async () => {
+    const loginUser = {
+      username: 'jarvis',
+      password: 'wrong',
+    };
+
+    const response = await api.post('/api/login').send(loginUser).expect(401);
+
+    const token = response.body.token;
+
+    expect(token).toBeUndefined();
+    expect(response.body.error).toBe('invalid username or password');
   });
 });
 
