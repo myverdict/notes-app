@@ -1,12 +1,12 @@
 const supertest = require('supertest');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-
-const helper = require('./test_helper');
 const app = require('../app');
-const api = supertest(app);
-const User = require('../models/user');
 const Note = require('../models/note');
+const User = require('../models/user');
+const helper = require('./test_helper');
+
+const api = supertest(app);
 
 describe('when there is initially some notes saved', () => {
   beforeEach(async () => {
@@ -143,7 +143,7 @@ describe('when there is initially some notes saved', () => {
 
 describe('when there is initially one user in the db', () => {
   beforeEach(async () => {
-    // delete all users at the beginning of the test
+    // delete all users at the beginning of each test
     await User.deleteMany({});
 
     // create and save a new user
