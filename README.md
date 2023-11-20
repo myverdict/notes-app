@@ -90,9 +90,9 @@ REST HTTP Methods for the notes application:
 
 ---
 
-## Part 4 - (d) Token authentication
+## Part 5 - (a) Login in frontend
 
-Practice - Note application: backend express server app (contd. from Part 4c)
+Practice - Note application: backend express server app (contd. from Part 4d)
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 
