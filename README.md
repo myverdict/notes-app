@@ -94,6 +94,12 @@ REST HTTP Methods for the notes application:
 
 Practice - Note application: backend express server app (contd. from Part 4d)
 
+## Part 5 - (b) props.children and proptypes
+
+Practice - Note application: backend express server app (contd. from Part 5a)
+
+---
+
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
 
 ### Requirements for the application:
