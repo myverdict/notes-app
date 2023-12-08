@@ -98,6 +98,10 @@ Practice - Note application: backend express server app (contd. from Part 4d)
 
 Practice - Note application: backend express server app (contd. from Part 5a)
 
+## Part 5 - (c) Testing React apps
+
+Practice - Note application: frontend fullstack (contd. from Part 5b)
+
 ---
 
 NOTE: when running the notes app frontend, make sure the notes app backend server is also running, else the app will not work
