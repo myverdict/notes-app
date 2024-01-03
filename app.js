@@ -28,9 +28,15 @@ app.use(express.static('dist')); // static middleware
 app.use(express.json()); // json parser middleware
 app.use(middleware.requestLogger); // custom middleware
 
-app.use('/api/notes', notesRouter);
-app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/notes', notesRouter);
+
+// needed for cypress tests: add it to the backend only if the app is run in test-mode
+if (process.env.NODE_ENV === 'test') {
+  const testingRouter = require('./controllers/testing');
+  app.use('/api/testing', testingRouter);
+}
 
 // handler of requests with unknown endpoint
 app.use(middleware.unknownEndpoint);
