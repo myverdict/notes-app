@@ -1,21 +1,21 @@
-const User = require("../models/user");
-const Note = require("../models/note");
+const User = require('../models/user');
+const Note = require('../models/note');
 
 // the initial database state
 const initialNotes = [
   {
-    content: "HTML is easy",
+    content: 'HTML is easy',
     important: false,
   },
   {
-    content: "Browser can execute only JavaScript",
+    content: 'Browser can execute only JavaScript',
     important: true,
   },
 ];
 
 // creates a database object ID that does not belong to any note object in the database
 const nonExistingId = async () => {
-  const note = new Note({ content: "willremovethissoon" });
+  const note = new Note({ content: 'willremovethissoon' });
   await note.save();
   await note.deleteOne();
 
