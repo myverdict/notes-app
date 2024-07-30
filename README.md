@@ -110,6 +110,8 @@ On the browser, visit for get requests:
 
 You can also perform these operations on Postman or VS Code REST client.
 
+NOTE: To get the `dist` directory, run the command `npm run build` from the `bloglist-frontend-vite` application and then copy the `dist` folder from the frontend folder to the backend folder. Open the application on `http://localhost:3003/` to view the frontend. The server and the application can be seen running together here.
+
 ---
 
 REST HTTP Methods for the notes application:
