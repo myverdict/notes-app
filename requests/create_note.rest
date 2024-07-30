@@ -1,0 +1,68 @@
+### UserId field not required as token authentication is there
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NjE4NjhlZDVjYmZiMzg0ZTU5ODY4YjQiLCJpYXQiOjE3MTI4NzU4ODYsImV4cCI6MTcxMjg3OTQ4Nn0.lLZYC1bTVgtK5Ndnhtcc47MGPcEDvcHCaVTmChsrjHA
+
+{
+  "content": "User id of the note creator is at the start sent along with the request",
+  "important": true
+}
+
+###
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NjE4NjhlZDVjYmZiMzg0ZTU5ODY4YjQiLCJpYXQiOjE3MTMwMjk1MzgsImV4cCI6MTcxMzAzMzEzOH0.VZ8fbud8o0O_C4APEgh52zFFZYE9ljLbnZMYkO7rW4A
+
+{
+  "content": "The existing tests need to be changed after code changes",
+  "important": true
+}
+
+### The 'important' field is optional
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2NjE4NjhlZDVjYmZiMzg0ZTU5ODY4YjQiLCJpYXQiOjE3MTMwMjk1MzgsImV4cCI6MTcxMzAzMzEzOH0.VZ8fbud8o0O_C4APEgh52zFFZYE9ljLbnZMYkO7rW4A
+
+{
+  "content": "HTML is easy"
+}
+
+### 
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY2MTg2OGRlNWNiZmIzODRlNTk4NjhiMCIsImlhdCI6MTcxMjg3NjEwNiwiZXhwIjoxNzEyODc5NzA2fQ.eJhDwssDBfMqRfrQFn40zHX5yaBBVCx9Rm_6kQTx_gU
+
+{
+  "content": "sample note"
+}
+
+### Fails - as token authentication is not there
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "User id of the note creator is at the start sent along with the request",
+  "important": true
+}
+
+### Fails - minimum content length is 5 
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY2MTg2OGRlNWNiZmIzODRlNTk4NjhiMCIsImlhdCI6MTcxMjg3NjEwNiwiZXhwIjoxNzEyODc5NzA2fQ.eJhDwssDBfMqRfrQFn40zHX5yaBBVCx9Rm_6kQTx_gU
+
+{
+  "content": "lol",
+  "important": true
+}
+
+### Fails - empty body; required 'content' field is missing
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY2MTg2OGRlNWNiZmIzODRlNTk4NjhiMCIsImlhdCI6MTcxMjg3NjEwNiwiZXhwIjoxNzEyODc5NzA2fQ.eJhDwssDBfMqRfrQFn40zHX5yaBBVCx9Rm_6kQTx_gU
+
+{}
+
+### Fails - empty body; required 'content' field is missing
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY2MTg2OGRlNWNiZmIzODRlNTk4NjhiMCIsImlhdCI6MTcxMjg3NjEwNiwiZXhwIjoxNzEyODc5NzA2fQ.eJhDwssDBfMqRfrQFn40zHX5yaBBVCx9Rm_6kQTx_gU

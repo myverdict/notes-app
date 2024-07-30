@@ -1,12 +1,21 @@
-PUT http://localhost:3001/api/notes/65284213802beff339a7a631
+PUT http://localhost:3001/api/notes/66186b7d5cbfb384e59868f2
 Content-Type: application/json
 
 {
-  "content": "HTML is easy"
+  "content": "HTML (Hypertext Markup Language) is easy"
 }
 
-###
-PUT http://localhost:3001/api/notes/65284213802beff339a7a631
+
+### Fails - minimum content length is 5
+PUT http://localhost:3001/api/notes/66186c1f5cbfb384e59868ff
+Content-Type: application/json
+
+{
+  "content": "lol"
+}
+
+### Fails - for invalid note id
+PUT http://localhost:3001/api/notes/someInvalidId
 Content-Type: application/json
 
 {

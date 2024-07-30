@@ -1,1 +1,5 @@
-DELETE http://localhost:3001/api/notes/6539515f4c7bc3fa063a9e44
+###
+DELETE http://localhost:3001/api/notes/66186a595cbfb384e59868d8
+
+### Fails - for invalid note id
+GET http://localhost:3001/api/notes/someInvalidId

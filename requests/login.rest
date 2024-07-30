@@ -1,16 +1,35 @@
+###
 POST http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-  "username": "mluukkai",
+  "username": "root",
   "password": "salainen"
 }
 
-### wrong password
+###
 POST http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-  "username": "mluukkai",
-  "password": "wrong"
+    "username": "mluukkai",
+    "password": "salainen"
+}
+
+### Fails - username does not exist
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+    "username": "kiolu",
+    "password": "salainen"
+}
+
+### Fails - incorrect password
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+    "username": "polly",
+    "password": "wrong"
 }
