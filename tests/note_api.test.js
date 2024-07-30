@@ -62,19 +62,6 @@ describe('when there is initially some notes saved', () => {
   });
 
   describe('addition of a new note', () => {
-    // beforeEach(async () => {
-    //   await User.deleteMany({});
-
-    //   const passwordHash = await bcrypt.hash('sekret', 10);
-    //   const user = new User({
-    //     username: 'mluukkai',
-    //     name: 'Matti Luukkainen',
-    //     passwordHash,
-    //   });
-
-    //   await user.save();
-    // });
-
     let token = '';
 
     before(async () => {
@@ -164,7 +151,11 @@ describe('when there is initially one user in db', () => {
 
     const passwordHash = await bcrypt.hash('sekret', 10);
     // create and save a new user
-    const user = new User({ username: 'root', name: 'rootuser', passwordHash });
+    const user = new User({
+      username: 'root',
+      name: 'rootuser',
+      passwordHash
+    });
 
     await user.save();
   });

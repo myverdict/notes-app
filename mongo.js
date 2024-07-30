@@ -5,10 +5,9 @@ const mongoose = require('mongoose');
 //   console.log('give password as argument');
 //   process.exit(1);
 // }
-
-// const uri = process.env.MONGODB_URI;
 // const password = process.argv[2];
 
+// const uri = process.env.MONGODB_URI;
 const uri = process.env.TEST_MONGODB_URI;
 
 mongoose.set('strictQuery', false);
@@ -39,7 +38,7 @@ const note = new Note({
 // save the object to the database
 note.save().then((result) => {
   console.log('note saved!');
-  console.log(result);
+  console.log('result', result);
   // close the database connection
   mongoose.connection.close();
 });
